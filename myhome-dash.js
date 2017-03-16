@@ -5,13 +5,13 @@ var PORT = 20000;
 
 //your dash buttons
 var DASH_BUTTONS = [
-		"ac:63:be:fe:93:e3", //nobo
-		"84:d6:d0:8c:ac:94" //barilla
+		"ac:63:be:fe:93:e3", //Dash 1
+		"84:d6:d0:8c:ac:94" //Dash 2
 		];
 
 var COMMANDS = [
-		"*1*1*12##",
-		"*1*0*12##",
+		"*1*1*12##", //Frame for Dash 1
+		"*1*0*12##", //Frame for Dash 2
 		];
 
 
@@ -24,7 +24,7 @@ var client = new net.Socket();
 function send_own (frame){
 	client.connect(PORT, HOST, function() {
 		console.log('CONNECTED TO: ' + HOST + ':' + PORT);
-		client.write('*99*9##' + frame);
+		client.write("*99*9##" + frame);
 	});
 
 	client.on('data', function(data) {
